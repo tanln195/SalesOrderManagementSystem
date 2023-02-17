@@ -74,6 +74,8 @@ namespace SalesOrderManagementSystem.Controllers
             }
         }
 
+        // Order order;
+
         // GET: OrderController/Delete/5
         public ActionResult Delete(string workOrder)
         {
@@ -84,12 +86,12 @@ namespace SalesOrderManagementSystem.Controllers
         // POST: OrderController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Order order)
+        public ActionResult DeleteDB(string workOrder)
         {
             try
             {
                 // TODO: Add delete logic here
-                orderDataAccessLayer.DeleteOrder(order.WorkOrder);
+                orderDataAccessLayer.DeleteOrder(workOrder);
                 return RedirectToAction(nameof(Index));
             }
             catch
